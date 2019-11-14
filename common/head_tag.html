@@ -27,7 +27,7 @@
   let keys = Object.keys(words).sort((x,y) => y.length - x.length);
 
   let escapedWords = "((" + keys.map(w => escapeRegExp(w)).join(")|(") + "))";
-  let regex = new RegExp("([^a-zA-ZäöüÄÖÜß1-9]|^)" + escapedWords + "([^a-zA-ZäöüÄÖÜß1-9]|$)", "ig");
+  let regex = new RegExp("([^a-zA-ZäöüÄÖÜß1-9]|^)" + escapedWords + "([^a-zA-ZäöüÄÖÜß1-9]|$)", "g");
 
   let createAbbr = function(text) {
       let title = words[text];
