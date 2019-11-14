@@ -4,7 +4,7 @@
   settings.abbreviations.split('|').forEach(pair => {
     hasWords = true;
     let split = pair.split(",");
-    words[split[0].toLowerCase()] = split[1];
+    words[split[0]] = split[1];
   });
 
   if (!hasWords) {
@@ -30,8 +30,7 @@
   let regex = new RegExp("([^a-zA-ZäöüÄÖÜß]|^)" + escapedWords + "([^a-zA-ZäöüÄÖÜß]|$)", "ig");
 
   let createAbbr = function(text) {
-      let lower = text.toLowerCase();
-      let title = words[lower];
+      let title = words[text];
       var abbr = document.createElement('abbr');
       abbr.innerHTML = text;
       abbr.title = title;
